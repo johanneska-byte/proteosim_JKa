@@ -14,7 +14,7 @@ dependencies = [
     "numpy",
     "pytest",
     "pandas",
-    "mathplotlib",
+    "matplotlib",
     "pyteomics" # Add all required dependencies
 ]
 
