@@ -1,4 +1,4 @@
-def test_fasta_reader(filepath):
+def test_fasta_reader():
     tmp_fasta_path = '../data/sample_proteins.fasta'
     #tmp_fasta_path = filepath
 
