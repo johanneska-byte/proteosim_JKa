@@ -21,30 +21,38 @@ def predict_lc_retention_times(peptides):
 from pyteomics import achrom
 import matplotlib.pyplot as plt
 
+import matplotlib.pyplot as plt
+
 def plot_retention_time(retention_times, resolution=30):
     """
-    Creates a histogram of the retention times of peptides in the retention_times variable with'list' number of histogram bins. Accepts list and dict. 
+    Creates a histogram of the retention times of peptides in the
+    retention_times variable with resolution number of histogram bins.
+    Accepts list and dict.
 
     Parameters
     ----------
     retention_times : list or dict
-        Retention times to plot. If a dictionary is provided, only the dictionary values are used
+        Retention times to plot. If a dictionary is provided,
+        only the dictionary values are used.
 
     resolution : int, default=30
-        Number of histogram bins
+        Number of histogram bins.
 
     Returns
     -------
     None
-        Displays a histogram of the retention time distribution
-    
+        Displays a histogram of the retention time distribution.
     """
-    plt.hist(retention_times, bins = resolution, color= "#666666")
-    plt.xlabel("Retention time")
-    plt.ylabel("count")
-    plt.title("Retention time distribution")
 
+    if isinstance(retention_times, dict):
+        retention_times = list(retention_times.values())
+
+    plt.hist(retention_times, bins=resolution, color="#666666")
+    plt.xlabel("Retention time")
+    plt.ylabel("Count")
+    plt.title("Retention time distribution")
     plt.show()
+
 
 
 def select_retention_time_window(peptide_rt_map, lower_ret_time, upper_ret_time):

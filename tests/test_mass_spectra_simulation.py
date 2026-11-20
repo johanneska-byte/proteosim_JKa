@@ -1,21 +1,21 @@
 import proteosim_JKa as ps
 
 def test_calculate_mol_mass():
-    aa_mass_dict = amino_acid_mass_dalton
+    aa_mass_dict = ps.amino_acid_mass_dalton
     test_peptide = "IINFRMATIK"
     expected_mass = 1188.50
     calculated_mass = list(ps.calculate_mol_mass(test_peptide, aa_mass_dict).values())[0]
     assert round(calculated_mass, 2) == round(expected_mass, 2)
 
 def test_calculate_mol_mass_collection():
-    aa_mass_dict = amino_acid_mass_dalton
+    aa_mass_dict = ps.amino_acid_mass_dalton
     peptides = ["AA", "PEP", "ACDK", "MKWVTF", "RLGY", "VVVV"]
     test_mol_mass_dict = {}
 
     for i in peptides:
         mol_mass = 0
         for amino_acid in i:
-            mol_mass += amino_acid_mass_dalton[amino_acid]
+            mol_mass += ps.amino_acid_mass_dalton[amino_acid]
 
         test_mol_mass_dict[i] = mol_mass
 

@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 
 from .mass_spectra_simulation import(
     amino_acid_mass_dalton,
+    calculate_mol_mass,
     calculate_mol_mass_collection,
     calculate_mz_collection,
     plot_spectrum,
